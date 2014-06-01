@@ -1,0 +1,30 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<h1>SEARCH<TMPL_IF NAME=ROWS> [<TMPL_VAR NAME=ROWS>]</TMPL_IF></h1>
+<TMPL_IF NAME=QUERY>
+<TMPL_IF NAME=ROWS>
+<div id="docfunc">
+<!--
+<img src="<TMPL_VAR NAME=SEARCHDOWNBLUEICON>"/>
+Download File
+-->
+</div>
+<table id='searchTable' class="tablesorter">
+<thead>
+<tr class='resdochead'><th id='resdocheadname'>NAME <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th><th>SOURCES <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th><th>SIZE <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th><th>ACTION <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th></tr>
+</thead>
+<tbody>
+<TMPL_LOOP NAME=RESULTS>
+<tr id='<TMPL_VAR NAME=RESHASH>' class='resdoc' >
+ <td id='resdocname'><TMPL_VAR NAME=RESNAME></td>
+ <td><TMPL_VAR NAME=RESSOURCES></td>
+ <td><TMPL_VAR NAME=RESFORMATSIZE></td>
+ <td><form method="get"><input class="dwnbutton" value="" type="button" alt="Start download" title="Start download" onClick="downloadFile('<TMPL_VAR NAME=RESESCNAME>','<TMPL_VAR NAME=RESSIZE>','<TMPL_VAR NAME=RESHASH>');" /></form></td>
+</tr>
+</TMPL_LOOP>
+</tbody>
+</table>
+<TMPL_ELSE>
+Your search did not match any documents.
+</TMPL_IF>
+</TMPL_IF>
+<TMPL_INCLUDE NAME="footer.tmpl">

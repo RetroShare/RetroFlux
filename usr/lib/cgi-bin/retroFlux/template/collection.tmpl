@@ -1,0 +1,23 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<h1>COLLECTION<TMPL_IF NAME=ROWS> [<TMPL_VAR ESCAPE=HTML NAME=RSCFILENAME>]</TMPL_IF></h1>
+<TMPL_IF NAME=ROWS>
+<div id="docfunc">
+<form method="get"><input class="dwnallbutton" value="DOWNLOAD ALL FILES" type="button" alt="Start download" onClick="downloadAllFiles();" /></form>
+</div>
+<table id="shareTable" class="tablesorter">
+<thead> 
+<tr class='sharedochead'><th id='sharedocheadname'>NAME <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th><th>SIZE <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th><th>ACTION <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th></tr>
+</thead>
+<tbody>
+<TMPL_LOOP NAME=RESULTS>
+<tr id='<TMPL_VAR NAME=RESHASH>' class='resdoc' >
+ <td id='resdocname'><TMPL_VAR NAME=RESNAME></td>
+ <td><TMPL_VAR NAME=RESFORMATSIZE></td>
+ <td><form name="sharedwnfile" method="get"><input class="dwnbutton" value="" type="button" alt="Start download" title="Start download" onClick="downloadFile('<TMPL_VAR NAME=RESESCNAME>','<TMPL_VAR NAME=RESSIZE>','<TMPL_VAR NAME=RESHASH>');" /></form></td>
+</tr>
+</TMPL_LOOP>
+</tbody>
+</table>
+<TMPL_ELSE>
+</TMPL_IF>
+<TMPL_INCLUDE NAME="footer.tmpl">

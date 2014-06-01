@@ -1,0 +1,30 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<h1>PEERS<TMPL_IF NAME=CNTPEERS> [<TMPL_VAR NAME=CNTCONNECTEDPEERS>/<TMPL_VAR NAME=CNTPEERS>]</TMPL_IF></h1>
+<TMPL_IF NAME=CNTPEERS>
+<div id="docfunc">
+<form action="peers.cgi" method="get">
+<input name="action" type="hidden" value="addpeer" />
+<input class="addpeertext" name="gpgid" placeholder="GPG ID" title="GPG ID" type="text" maxlength="16" value="" />
+<input class="addpeerbutton" value="ADD PEER" type="submit" alt="Add peer" />
+</form>
+<form method="get"><input type="checkbox" id="hideOffline" name="hideOffline" value="hideOffline" onclick="changeDisplayOffline();" >HIDE OFFLINE</form>
+</div>
+<table id="peersTable" class="tablesorter">
+<thead>
+<tr class="resdochead"><th id="resdocheadname">NAME <img src="<TMPL_VAR NAME=SORTICONLINK>"/></th><th>GPG ID <img src="<TMPL_VAR NAME=SORTICONLINK>"/></th><th>RELATION <img src="<TMPL_VAR NAME=SORTICONLINK>"/></th><th>STATUS <img src="<TMPL_VAR NAME=SORTICONLINK>"/></th><th>ACTION <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th></tr>
+</thead>
+<tbody>
+<TMPL_LOOP NAME=PEERS>
+<tr id='<TMPL_VAR NAME=PEERGPG>' class="resdoc">
+ <td id="resdocname"><TMPL_VAR NAME=PEERNAME></td>
+ <td><TMPL_VAR NAME=PEERGPG></td>
+ <td><TMPL_VAR NAME=PEERREL></td>
+ <td><TMPL_VAR NAME=PEERSTAT></td>
+ <td><form method="get"><input class="removebutton" value="" type="button" alt="Remove Peer" title="Remove Peer" onClick="removePeer('<TMPL_VAR NAME=PEERGPG>');" /></form></td>
+</tr>
+</TMPL_LOOP>
+</tbody>
+</table>
+<TMPL_ELSE>
+</TMPL_IF>
+<TMPL_INCLUDE NAME="footer.tmpl">

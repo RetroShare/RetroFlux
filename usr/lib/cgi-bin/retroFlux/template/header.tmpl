@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><TMPL_VAR NAME=PAGETITLE></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="<TMPL_VAR NAME=STYLESHEETLINK>" />
+<link rel="shortcut icon" type="image/x-icon" href="<TMPL_VAR NAME=FAVICON>" />
+<script type="text/javascript" language="javascript" src="<TMPL_VAR NAME=JSAJAX>"> </script>
+<script type="text/javascript" language="javascript" src="<TMPL_VAR NAME=JSTEXTUTILS>"> </script>
+<script type="text/javascript" language="javascript" src="<TMPL_VAR NAME=JSJQUERY>"> </script>
+<script type="text/javascript" language="javascript" src="<TMPL_VAR NAME=JSJQUERYTABSORTER>"> </script>
+<script type="text/javascript" language="javascript" src="<TMPL_VAR NAME=JSRFFUNC>"> </script>
+</head>
+<body onload="timedRefresh(<TMPL_VAR NAME=TIMEOUTPERIOD>);">
+<TMPL_INCLUDE NAME="menu.tmpl">

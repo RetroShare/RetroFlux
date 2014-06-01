@@ -1,0 +1,24 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<h1>STATUS</h1>
+<table id="status">
+  <tr><th></th><th></th></tr>
+  <tr><td>Peers</td><td><span id="peers"><TMPL_VAR NAME=PEERS></span></td></tr>
+  <tr><td>Connected</td><td><span id="connected"><TMPL_VAR NAME=CONNECTED></span></td></tr>
+  <tr><td>NetStatus</td><td><span id="netstatus"><TMPL_VAR NAME=NETSTATUS></span></td></tr>
+  <tr><td>Download</td><td><span id="download"><TMPL_VAR NAME=BANDWDWN></span></td></tr>
+  <tr><td>Upload</td><td><span id="upload"><TMPL_VAR NAME=BANDWUP></span></td></tr>
+</table>
+<br />
+<TMPL_IF NAME=FSDISCSPACE>
+<h1>DISK SPACE</h1>
+<table id="discspace">
+  <tr><th class="discspacepath">PATH</th><th>FREE</th><th>USED</th><th>TOTAL</th><th>PERCENT</th></tr>
+<TMPL_LOOP NAME=FSDISCSPACE>
+  <tr><td class="discspacepath"><TMPL_VAR NAME=FSPATH></td><td><TMPL_VAR NAME=FSFREE></td><td><TMPL_VAR NAME=FSUSED></td><td><TMPL_VAR NAME=FSTOTAL></td><td><TMPL_VAR NAME=FSPERCENT></td></tr>
+</TMPL_LOOP>
+</table>
+</TMPL_IF>
+<!--
+<form method="GET"><input value="Refresh" type="Button" onClick="getSystemStatus();" /></form>
+-->
+<TMPL_INCLUDE NAME="footer.tmpl">

@@ -1,0 +1,37 @@
+<div id="nav">
+	<div id="navbar">
+		<div id="navlogo"><img alt="RetroFlux Logo" src="<TMPL_VAR NAME=LOGOLINK>"><a href="index.cgi"><TMPL_VAR NAME=PROGNAME></a></div>
+		<TMPL_IF NAME=ERRORMSG><div id="naverror"><TMPL_VAR ESCAPE=HTML NAME=ERRORMSG></div></TMPL_IF>
+	</div>
+	<div id="navlinks">
+		<ul id="toptabs">
+			<li class="topli">
+			<div id="navupload">
+				<form action="collection.cgi" method="post" enctype="multipart/form-data">
+				<div class="topupload">
+					<div id="upfilebutton" onclick="getRSCFile()"><a title="Upload and show RS-Collection">RSCOLLECTION</a></div>
+					<input id="upfile" type="file" placeholder="Upload RSCollection" title="Upload RSCollection" name="rscfile" maxlength="2097152" oninput="this.onchange();" onchange="this.form.submit()">
+					<input id="upfilesubmit" type="submit">
+				</div>
+				</form>
+			</div>
+			</li>
+			<li class="topli"><a href="download.cgi" alt="Show downloadlist" title="Show downloadlist">DOWNLOAD</a></li>
+			<li class="topli"><a href="upload.cgi" alt="Show uploadlist" title="Show uploadlist">UPLOAD</a></li>
+			<li class="topli"><a href="peers.cgi" alt="Show peerlist" title="Show peerlist">PEERS</a></li>
+			<li class="topli"><a href="status.cgi" alt="Status of diskspace and connection" title="Status of diskspace and connection">STATUS</a></li>
+			<li class="topli"><a href="chatlobby.cgi" alt="Show chatlobbies" title="Show chatlobbies">CHATLOBBIES</a></li>
+		</ul>
+	</div>
+	<div id="navsearch">
+		<form action="search.cgi" method="get">
+		<div class="topsearch">
+			<input id="qu" type="search" placeholder="Search" title="Search" maxlength="128" value="" name="q">
+			<button id="button" alt="Search Button" title="Search" value="" type="submit">
+				<img alt="Click to Search" title="Click to Search" src="<TMPL_VAR NAME=SEARCHLOGOLINK>">
+			</button>
+		</div>
+		</form>
+	</div>
+</div>
+<div id="doc" style="display:none">

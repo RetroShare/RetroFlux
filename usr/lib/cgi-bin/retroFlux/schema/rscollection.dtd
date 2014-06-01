@@ -1,0 +1,9 @@
+<!ELEMENT Directory ( File | Directory )* >
+<!ATTLIST Directory name CDATA #REQUIRED >
+
+<!ELEMENT File EMPTY >
+<!ATTLIST File name CDATA #REQUIRED >
+<!ATTLIST File sha1 CDATA #REQUIRED >
+<!ATTLIST File size CDATA #REQUIRED >
+
+<!ELEMENT RsCollection ( File | Directory )* >

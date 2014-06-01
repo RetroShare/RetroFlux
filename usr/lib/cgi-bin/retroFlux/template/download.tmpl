@@ -1,0 +1,37 @@
+<TMPL_INCLUDE NAME="header.tmpl">
+<h1>DOWNLOAD<TMPL_IF NAME=ROWS> [<TMPL_VAR NAME=ROWS>]</TMPL_IF></h1>
+<TMPL_IF NAME=ROWS>
+<div id="docfunc">
+<!--
+<img src='<TMPL_VAR NAME=SHARERESTARTBLUEICON>'/>
+Restart Transfer
+<img src='<TMPL_VAR NAME=SHAREPAUSEBLUEICON>'/>
+Stop Transfer
+<img src='<TMPL_VAR NAME=SHARESTOPBLUEICON>'/>
+Delete Transfer
+-->
+<form method="get"><input type="checkbox" id="hideCache" name="hideCache" value="hideCache" onclick="changeDisplayCache();" >HIDE CACHE</form>
+</div>
+<table id="shareTable" class="tablesorter">
+<thead> 
+<tr class='sharedochead'><th id='sharedocheadname'>NAME <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th><th>RATE <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th><th>SIZE <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th><th>COMPLETED <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th><th>ACTION <img src='<TMPL_VAR NAME=SORTICONLINK>'/></th></tr>
+</thead>
+<tbody>
+<TMPL_LOOP NAME=RESULTS>
+  <tr id='<TMPL_VAR NAME=RESHASH>' class='sharedoc' >
+      <td id='sharedocname'><TMPL_VAR NAME=RESNAME></td>
+      <td><TMPL_VAR NAME=RESRATE></td>
+      <td><TMPL_VAR NAME=RESFORMATSIZE></td>
+      <td><TMPL_VAR NAME=RESFRAC></td>
+      <td><form method="get">
+      <input class="restartbutton" value="" type="button" alt="Restart" title="Restart download" onClick="restartDownload('<TMPL_VAR NAME=RESESCNAME>','<TMPL_VAR NAME=RESSIZE>','<TMPL_VAR NAME=RESHASH>');" />
+      <input class="pausebutton" value="" type="button" alt="Pause" title="Pause download" onClick="pauseDownload('<TMPL_VAR NAME=RESESCNAME>','<TMPL_VAR NAME=RESSIZE>','<TMPL_VAR NAME=RESHASH>');" />
+      <input class="stopbutton" value="" type="button" alt="Stop" title="Delete download" onClick="stopDownload('<TMPL_VAR NAME=RESESCNAME>','<TMPL_VAR NAME=RESSIZE>','<TMPL_VAR NAME=RESHASH>');" />
+      </form></td>
+  </tr>
+</TMPL_LOOP>
+</tbody>
+</table>
+<TMPL_ELSE>
+</TMPL_IF>
+<TMPL_INCLUDE NAME="footer.tmpl">
